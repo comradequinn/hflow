@@ -1,0 +1,30 @@
+>>>
+GET /?q=are+these+the+droids+I+am+looking+for&va=b&t=hc&ia=web HTTP/1.1
+Host: duckduckgo.com
+Accept: */*
+User-Agent: curl/7.86.0
+
+
+<<< source-request: GET https://duckduckgo.com:443/?q=are+these+the+droids+I+am+looking+for&va=b&t=hc&ia=web
+HTTP/1.1 200 OK
+Server: nginx
+Cache-Control: max-age=1
+X-Duckduckgo-Locale: en_US
+Permissions-Policy: interest-cohort=()
+X-Xss-Protection: 1;mode=block
+Connection: keep-alive
+Date: Fri, 30 Dec 2022 20:24:26 GMT
+Content-Type: text/html; charset=UTF-8
+Vary: Accept-Encoding
+Server-Timing: total;dur=23;desc="Backend Total"
+Strict-Transport-Security: max-age=31536000
+X-Frame-Options: SAMEORIGIN
+Via: hflow
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'none' ; connect-src  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ ; manifest-src  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ ; media-src  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ ; script-src blob:  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ 'unsafe-inline' 'unsafe-eval' ; font-src data:  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ ; img-src data:  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ ; style-src  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ 'unsafe-inline' ; object-src 'none' ; worker-src blob: ; child-src blob:  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ ; frame-src blob:  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ ; form-action  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ ; frame-ancestors 'self' ; base-uri 'self' ; block-all-mixed-content ;
+Expires: Fri, 30 Dec 2022 20:24:27 GMT
+X-Duckduckgo-Results: 1
+Referrer-Policy: origin
+Expect-Ct: max-age=0
+
+<!DOCTYPE html><html lang="en-US" class="no-js has-zcm  no-theme is-link-style-exp is-link-order-exp is-link-breadcrumb-exp is-related-search-exp is-vertical-tabs-exp"><head><meta name="description" c

@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Start",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/hflow.go",
+            "env": {},
+            "args": ["-v=1"]
+        },
+        {
+            "name": "TestBed",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/cmd/test/test.go",
+            "env": {}
+        },
+        {
+            "name": "Attach",
+            "type": "go",
+            "request": "attach",
+            "mode": "local",
+            "processId": "${command:pickProcess}",
+            "showLog": true
+        },
+        {
+            "name": "Test",
+            "type": "go",
+            "request": "launch",
+            "mode": "test",
+            "program": "${fileDirname}",
+            "env": {}
+        }
+    ]
+}
