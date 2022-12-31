@@ -14,9 +14,13 @@ hflow exposes the following features via an easy to use interactive CLI
 # Why HFLOW?
 There are two popular options in the `*nix` http debugging proxy arena; `Charles` and `mitmproxy`. The former is neither free nor command-line based and therefore not comparable to hflow. The latter is a fully featured, and excellent, example of FOSS software. hflow doesn't have any functionality that `mitmproxy` doesn't, and also lacks much that `mitmproxy` does provide. 
 
-But hflow still has a niche.
+But hflow still has a solid use-case.
 
-hflow is primarily a tool to quickly capture traffic on container instances and servers. While `mitmproxy` could do that task, it is a very weighty install with a lot of dependencies which may not be available, or accessible, on a container or server. It also has a steep learning curve, relatively to hflow, for even basic features (*this is not a criticism of `mitmproxy`: more features mean more options and more complexity; hflow focuses on the most commonly used features, and as such, does less*). 
+hflow is primarily a tool to quickly capture traffic on container instances, servers, IoT devices or any non-desktop environment. 
+
+While `mitmproxy` could theoretically operate in these environments, it is a very weighty install, it consumes a relatively large amount of resources, and requires a lot of dependencies: which may not be available, or accessible, on containers, servers or other devices. 
+
+It also has a steep learning curve, relative to hflow, for even basic features (*this is not a criticism of `mitmproxy`: more features mean more options and more complexity; hflow focuses on the most commonly used features, and as such, does less*). 
 
 hflow is a single binary: drop the binary on any host and just run it. The interactive CLI is fluid and extremely simple: this document provides examples and instructions, but few would need them to get started. 
 
@@ -117,7 +121,7 @@ Open a second terminal and execute the below:
 
 # -x sets hflow as a proxy for this request only. the url is a duck-duck-go query
 # -k instructs curl to ignore certificate errors; certificate errors can be addressed by installing the HFLOW Root CA certificate into the client's CA cert store (see #installing-the-hflow-root-ca-certificate)
-curl -i -k -x http://127.0.0.1:4443 https://duckduckgo.com/?q=are+these+the+droids+I+am+looking+for&va=b&t=hc&ia=web 
+curl -i -k -x http://127.0.0.1:4443 "https://duckduckgo.com/?q=are+these+the+droids+I+am+looking+for&va=b&t=hc&ia=web" 
 ```
 
 Observe the request and response traffic capture records displayed in `terminal 1`.
@@ -206,7 +210,7 @@ Open a second terminal and execute the below:
 
 ```bash
 # terminal 2
-curl -i -k -x http://127.0.0.1:4443 https://duckduckgo.com/?q=are+these+the+droids+I+am+looking+for&va=b&t=hc&ia=web
+curl -i -k -x http://127.0.0.1:4443 "https://duckduckgo.com/?q=are+these+the+droids+I+am+looking+for&va=b&t=hc&ia=web" 
 ```
 
 Observe, shortly, in `terminal 1` that a notification has been written indicating that a breakpoint has been hit. 
@@ -324,8 +328,6 @@ enter the required option:
 
 Stop hflow and `netcat` with `CTRL+C`.
 
-# Usage
-
 ## Help
 Execute the below to output all configuration options
 
@@ -347,12 +349,8 @@ The below example uses curl and sets the proxy inline with `-x`, applying it onl
 
 `curl -i -XPOST -d "http-body-data" -x http://127.0.0.1:8080 http://example.com/api/resource`
 
-Once your proxy settings are configured, use your client to make HTTP requests and note the captured HTTP traffic in your terminal (*or wherever `stdout` is redirected*).
-
-Hit `[CTRL] + C` to stop hflow 
-
 ## Dump Mode: Creating a Capture File
-To run in `dump mode` specify a capture file when starting hflow by passing the `-f` flag and with a file name. 
+To run in `dump mode` specify a capture file when starting hflow by passing the `-f` flag with a file name. 
 
 By default, all traffic in the proxy session will be written to this file. Optionally, this output can be tuned by specifying further flags to limit traffic to a specific URL pattern or to output binary data and to truncate bodies at a certain number of bytes. 
 
@@ -365,7 +363,7 @@ hflow -f "hflow.capture" -b -u="duckduckgo.com" -l=200
 ## Installing the HFLOW Root CA Certificate
 To avoid HTTP client warnings relating to the safety of connections to secured domains when proxying HTTPS traffic, you may wish to add the HFLOW Root CA Certificate into your HTTP clients trusted CA certificate collection. Note that this is a potential security risk as the HFLOW Root CA Certificate is freely accessible on the internet. As such, this is undertaken at your own risk and it is advised that you untrust the certificate when not using hflow.
 
-If you wish to proceed, the certficate can be exported in PEM format using the below command. The resulting PEM file can then be loaded directly into your HTTP client's truested CA certificate collection.
+If you wish to proceed, the certficate can be exported in PEM format using the below command. The resulting PEM file can then be loaded directly into your HTTP client's trusted CA certificate collection.
 
 ```
 hflow -e=e > ./hflow-ca.pem
